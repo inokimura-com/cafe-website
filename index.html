@@ -1,18 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>カフェ オレオレ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>（店名）ミルクたっぷりカフェ</title>
+  <meta name="description" content="ミルクたっぷりのカフェオレと、こだわりの自家焙煎豆が自慢のカフェです。">
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 40px; }
-    h1 { color: brown; }
-    p { font-size: 18px; }
+    :root{
+      --bg:#fff8f2;
+      --card:#ffffff;
+      --ink:#2c2c2c;
+      --mute:#6b6b6b;
+      --accent:#8b5e34;  /* コーヒー色 */
+      --accent-2:#c9a27a;
+      --radius:18px;
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+      color:var(--ink); background:var(--bg); line-height:1.65;
+    }
+    a{color:var(--accent); text-decoration:none}
+    header{
+      position:relative; min-height:56vh; display:grid; place-items:center; text-align:center; color:white;
+      background:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+    header::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55));}
+    .hero{position:relative; padding:48px 20px; max-width:960px; z-index:1}
+    .badge{display:inline-block; padding:6px 12px; border-radius:999px; background:#ffffffd1; color:#3a2a1e; font-weight:600; margin-bottom:14px}
+    .hero h1{margin:0 0 10px; font-size: clamp(28px, 6vw, 48px); letter-spacing:.02em}
+    .hero p{margin:0 auto; max-width:720px; opacity:.95}
+    .wrap{max-width:1100px; margin:-40px auto 64px; padding:0 20px}
+    .grid{display:grid; gap:18px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+    .two{grid-template-columns:1fr; }
+    .three{grid-template-columns:1fr; }
+    @media (min-width:780px){
+      .two{grid-template-columns:1fr 1fr}
+      .three{grid-template-columns:repeat(3, 1fr)}
+    }
+    h2{font-size: clamp(22px, 3.5vw, 28px); margin:6px 0 14px}
+    .lead{color:var(--mute); margin-top:-6px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#f2e7db; color:#3d2a19; font-size:12px; margin-right:8px}
+    .cta{display:inline-block; background:var(--accent); color:white; padding:12px 18px; border-radius:12px; font-weight:700; box-shadow:var(--shadow)}
+    .cta:hover{opacity:.9}
+    /* テーブル（営業時間） */
+    table{width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden}
+    th,td{padding:10px 12px; text-align:left}
+    tr:nth-child(even){background:#faf6f1}
+    th{background:#efe2d3}
+    /* 画像 */
+    .img-fit{width:100%; height:220px; object-fit:cover; border-radius:12px}
+    footer{padding:28px 18px 48px; text-align:center; color:#8a8a8a}
   </style>
 </head>
 <body>
-  <h1>カフェ オレオレ</h1>
-  <p>ミルクたっぷりのカフェオレと、こだわりの豆をご用意しています。</p>
-  <img src="https://picsum.photos/400/250" alt="カフェの写真">
-  <p>ぜひ一度ご来店ください！</p>
+
+  <!-- ヒーロー -->
+  <header>
+    <div class="hero">
+      <span class="badge">Milk-rich Café au Lait</span>
+      <h1>（店名）カフェ — ミルクたっぷりカフェオレと、こだわりの豆</h1>
+      <p>ふんわり甘いミルクと深煎りのコク。毎日飲みたくなる看板カフェオレと、選び抜いた豆のハンドドリップをどうぞ。</p>
+      <p style="margin-top:18px;"><a class="cta" href="#access">アクセスを見る</a></p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- こだわり -->
+    <section class="grid two" aria-labelledby="about">
+      <div class="card">
+        <h2 id="about">当店のこだわり</h2>
+        <p class="lead">“ミルクたっぷり”が主役。エスプレッソのキレを活かしつつ、濃厚なのに軽やかな後味に仕上げています。</p>
+        <p><span class="pill">看板</span>ミルクたっぷりカフェオレ</p>
+        <p><span class="pill">豆</span>中深煎りを中心に、季節でシングルオリジンも入替</p>
+        <p><span class="pill">フード</span>手づくり焼き菓子（数量限定）</p>
+      </div>
+      <div class="card">
+        <img class="img-fit" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200&auto=format&fit=crop" alt="カフェオレの写真">
+        <p style="margin-top:10px;">写真はイメージ（Unsplash の無料写真）</p>
+      </div>
+    </section>
+
+    <!-- シグネチャー -->
+    <section class="grid three" aria-labelledby="signature">
+      <div class="card">
+        <img class="img-fit" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" alt="コーヒー豆の写真">
+        <h2 id="signature">こだわりの豆</h2>
+        <p>香りと甘みがバランスよく出る焙煎に調整。初めての方にはハウスブレンドがおすすめ。</p>
+      </div>
+      <div class="card">
+        <img class="img-fit" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop" alt="ラテアートの写真">
+        <h2>ミルクたっぷりカフェオレ</h2>
+        <p>濃い目のエスプレッソ×スチームミルク。甘さ控えめでも満足感しっかり。</p>
+      </div>
+      <div class="card">
+        <img class="img-fit" src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1200&auto=format&fit=crop" alt="店内イメージの写真">
+        <h2>くつろげる空間</h2>
+        <p>お一人でも気軽に。テイクアウトもご用意しています。</p>
+      </div>
+    </section>
+
+    <!-- 基本情報 -->
+    <section class="grid two" aria-labelledby="info">
+      <div class="card">
+        <h2 id="info">営業時間</h2>
+        <table aria-label="営業時間">
+          <tr><th>月</th><td>10:00–18:00</td></tr>
+          <tr><th>火</th><td>10:00–18:00</td></tr>
+          <tr><th>水</th><td>定休日</td></tr>
+          <tr><th>木</th><td>10:00–18:00</td></tr>
+          <tr><th>金</th><td>10:00–18:00</td></tr>
+          <tr><th>土</th><td>10:00–19:00</td></tr>
+          <tr><th>日・祝</th><td>10:00–19:00</td></tr>
+        </table>
+        <p style="margin-top:8px; color:var(--mute);">※ 仕入れ等により変更する場合があります。</p>
+      </div>
+      <div class="card" id="access">
+        <h2>アクセス & 基本情報</h2>
+        <p><strong>住所：</strong>〒000-0000 福岡県〇〇市〇〇 1-2-3（ビル1F）</p>
+        <p><strong>最寄り：</strong>〇〇駅 徒歩5分</p>
+        <p><strong>駐車場：</strong>あり（2台）</p>
+        <p><strong>電話：</strong><a href="tel:000-0000-0000">000-0000-0000</a></p>
+        <p><strong>メール：</strong><a href="mailto:info@example.com">info@example.com</a></p>
+        <p style="margin-top:10px;">
+          <a class="cta" href="https://www.google.com/maps/search/?api=1&query=福岡県〇〇市〇〇1-2-3" target="_blank" rel="noopener">Googleマップを開く</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- お知らせ -->
+    <section class="card" aria-labelledby="news">
+      <h2 id="news">おすすめ・お知らせ</h2>
+      <ul>
+        <li>季節限定：ハニーラテ（＋50円でミルク多めにできます）</li>
+        <li>豆の量り売り：100g〜（ブレンド／シングルオリジン）</li>
+        <li>テイクアウトOK、モバイルオーダー準備中</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>© <span id="y"></span> （店名）ミルクたっぷりカフェ</div>
+    <div style="margin-top:6px">写真：Unsplash（商用利用可/クレジット不要）</div>
+  </footer>
+
+  <script>
+    // 年表示だけ自動更新
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
